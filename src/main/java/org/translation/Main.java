@@ -21,13 +21,12 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        // TODO Task: once you finish the JSONTranslator,
-        //            you can use it here instead of the InLabByHandTranslator
-        //            to try out the whole program!
-        // Translator translator = new JSONTranslator(null);
-        Translator translator = new InLabByHandTranslator();
 
-        runProgram(translator);
+        Translator translator = new JSONTranslator(null);
+        CountryCodeConverter countryCodeConverter = new CountryCodeConverter();
+        LanguageCodeConverter languageCodeConverter = new LanguageCodeConverter();
+
+        runProgram(translator, countryCodeConverter, languageCodeConverter);
     }
 
     /**
@@ -36,7 +35,8 @@ public class Main {
      * See the class Javadoc for a summary of what the program will do.
      * @param translator the Translator implementation to use in the program
      */
-    public static void runProgram(Translator translator) {
+    public static void runProgram(Translator translator, CountryCodeConverter countryCodeConverter,
+                                  LanguageCodeConverter languageCodeConverter) {
         while (true) {
             String country = promptForCountry(translator);
             // TODO CheckStyle: The String "quit" appears 3 times in the file.
